@@ -48,8 +48,8 @@ async function run() {
 
       app.get('/user', async(req, res) =>{
         const cursor = userCollections.find();
-        const users = await cursor.toArray();
-        res.send(users);
+        const user = await cursor.toArray();
+        res.send(user);
       })
 
       app.delete('/user/:id', async(req,res) =>{
@@ -57,6 +57,8 @@ async function run() {
         const query = {_id: new ObjectId(id)}
         const result = await userCollections.deleteOne(query);
         res.send(result);
+
+       
 
         
 
